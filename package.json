@@ -15,6 +15,7 @@
     "test-retry": "npx playwright test --retries=3",
     "test-smoke": "npx playwright test --grep @Smoke",
     "test-STA": "npx playwright test --grep @STA",
+    "test-vis-up": "npx playwright test --update-snapshots",
     "gen": "npx playwright codegen https://magento.softwaretestingboard.com/"
   },
   "keywords": [],
