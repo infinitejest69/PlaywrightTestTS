@@ -23,7 +23,6 @@ for (const product of products) {
       await HomePage.ProductItems().productItemByText(product.item).locator(HomePage.ProductItems().colorByLabelExact(product.color)).click();
       await expect(HomePage.ProductItems().loadingImage()).toBeVisible();
       await expect(HomePage.ProductItems().loadingImage()).not.toBeVisible();
-      await HomePage.ProductItems().productItemByText(product.item).hover();
     }
     await expect(HomePage.ProductItems().productItemByText(product.item)).toHaveScreenshot(`${product.item}_${product.color}.png`, {
       animations: 'disabled',

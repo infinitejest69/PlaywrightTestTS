@@ -6,7 +6,7 @@ const products = [
   { item: 'Breathe-Easy Tank', size: 'S', color: 'White' },
   { item: 'Breathe-Easy Tank', size: 'M', color: 'Yellow' },
   { item: 'Argus All-Weather Tank', size: 'L', color: 'Gray' },
-  { item: 'Argus All-Weather Tank', size: 'XL', color: 'Gray' },
+ // { item: 'Argus All-Weather Tank', size: 'XL', color: 'Gray' },
   { item: 'Hero Hoodie', size: 'XS', color: 'Gray' },
   { item: 'Hero Hoodie', size: 'S', color: 'Black' },
   { item: 'Hero Hoodie', size: 'M', color: 'Green' },
