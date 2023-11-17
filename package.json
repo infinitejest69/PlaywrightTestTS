@@ -1,0 +1,27 @@
+{
+  "name": "playwrighttestts",
+  "version": "1.0.0",
+  "description": "A Repo to use learnings to put some tests together",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "report": "npx playwright show-report",
+    "test-ui": "npx playwright test --ui",
+    "update": "npm install -D @playwright/test@latest",
+    "test-head": "npx playwright test --headed",
+    "test-ff": "npx playwright test --project=firefox",
+    "test-chrome": "npx playwright test --project=chromium",
+    "test-edge": "npx playwright test --project=Edge",
+    "test-retry": "npx playwright test --retries=3",
+    "test-smoke": "npx playwright test --grep @Smoke",
+    "test-STA": "npx playwright test --grep @STA",
+    "gen": "npx playwright codegen https://magento.softwaretestingboard.com/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.9.1"
+  }
+}
