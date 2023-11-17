@@ -58,4 +58,8 @@ export class ProductItems {
   public sizeByLabelExact(input: string): Locator {
     return this.page.getByLabel(input, { exact: true });
   }
+
+  notused(): Locator {
+    return this.page.locator('');
+  }
 }
