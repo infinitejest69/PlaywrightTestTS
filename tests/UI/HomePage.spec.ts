@@ -6,7 +6,6 @@ const products = [
   { item: 'Breathe-Easy Tank', size: 'S', color: 'White' },
   { item: 'Breathe-Easy Tank', size: 'M', color: 'Yellow' },
   { item: 'Argus All-Weather Tank', size: 'L', color: 'Gray' },
- // { item: 'Argus All-Weather Tank', size: 'XL', color: 'Gray' },
   { item: 'Hero Hoodie', size: 'XS', color: 'Gray' },
   { item: 'Hero Hoodie', size: 'S', color: 'Black' },
   { item: 'Hero Hoodie', size: 'M', color: 'Green' },
@@ -30,3 +29,18 @@ for (const product of products) {
     //todo validate correct item size and color added to basket
   });
 }
+
+test('Add Item Out of stock', async ({ page, CommonPage, HomePage }) => {
+  await page.goto('/');
+  await expect(CommonPage.Header().HomeLogo()).toBeInViewport();
+  await expect(CommonPage.Header().search()).toBeInViewport();
+  await expect(CommonPage.Nav().NavBar()).toBeInViewport();
+  await expect(HomePage.ProductItems().productItemByText('Argus All-Weather Tank')).toBeVisible();
+  await HomePage.ProductItems().productItemByText('Argus All-Weather Tank').locator(HomePage.ProductItems().sizeByLabelExact('XL')).click();
+  await HomePage.ProductItems().productItemByText('Argus All-Weather Tank').locator(HomePage.ProductItems().colorByLabelExact('Gray')).click();
+  await HomePage.ProductItems().addToCartButtonClickByProductName('Argus All-Weather Tank');
+  await expect(CommonPage.Alerts().AlertsAll().first()).toContainText('The requested qty is not available');
+  await expect(page.locator('H1')).toHaveText('Argus All-Weather Tank');
+  await expect(CommonPage.Alerts().ShoppingCartLink()).not.toBeVisible();
+  await expect(CommonPage.Header().basketCounterNumber()).not.toBeVisible();
+});
